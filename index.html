@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body{
+            margin: auto;
+            width: 80%;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 3rem;
+        }
+        .container {
+            display: flex;   
+            margin-top: 3rem;     
+        }
+        a{
+            color: inherit;
+            text-decoration: none;
+            width: 3rem;
+            border: solid 1px black;
+            padding: 10px;           
+        }
+        .sim {
+            background-color: green;
+            color: white;
+        }
+        .nao {
+            background-color: red;
+            color: white;
+        }
+        .coluna1, .coluna1 {
+            width: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Você aceita namorar comigo, minha gabzinha</h1>
+        <div class="container">            
+            <div class="coluna1">
+                <a href="#" class="sim" id="Sim">Sim</a>
+            </div>
+            <div class="coluna2"> 
+                <a href="./pag2.html" class="nao">Não</a>
+            </div>
+        </div>
+        <video id="meuVideo" width="640" height="360" controls style="display: none; margin-top: 5rem;">
+            <source src="./img/videoplayback.mp4" type="video/mp4">
+          
+        </video>
+
+        <script>
+  function exibirVideo() {
+        const video = document.getElementById('meuVideo');
+
+        // Exibe o vídeo alterando o estilo para 'block'
+        video.style.display = 'block';
+
+        // Inicia a reprodução do vídeo
+        video.play();
+
+        // Define o loop para continuar reproduzindo indefinidamente
+        video.addEventListener('ended', function() {
+            video.currentTime = 0; // Reinicia o vídeo para o início
+            video.play(); // Continua reproduzindo em loop
+        });
+    }
+
+    // Adiciona um evento de clique ao botão "Ativar Vídeo"
+    const botaoAtivar = document.getElementById('Sim');
+    botaoAtivar.addEventListener('click', exibirVideo);
+
+        </script>
+</body>
+</html>
