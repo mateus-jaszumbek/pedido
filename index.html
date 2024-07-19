@@ -1,85 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Pedido de Ficante</title>
     <style>
-        body{
-            margin: auto;
-            width: 80%;
-            text-align: center;
-        }
-        h1 {
-            margin-top: 3rem;
-        }
-        .container {
-            display: flex;   
-            margin-top: 3rem;     
-        }
-        a{
-            color: inherit;
-            text-decoration: none;
-            width: 3rem;
-            border: solid 1px black;
-            padding: 10px;           
-        }
-        .sim {
-            background-color: green;
-            color: white;
-        }
-        .nao {
-            background-color: red;
-            color: white;
-        }
-        .coluna1, .coluna1 {
-            width: 50%;
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
         }
 
+        .container {
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #ff6f61;
+            margin-bottom: 1em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+        }
+
+        button {
+            background: #ff6f61;
+            color: white;
+            border: none;
+            padding: 0.8em 1.2em;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #ff4a3d;
+        }
+
+        button.stars::after {
+            content: '😍';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 1.5em;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: scale(0.5);
+        }
+
+        button.stars:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .starsn:hover {
+            background: #ff4a3d;
+        }
+
+        button.starsn::after {
+            content: '🥺';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 1.5em;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: scale(0.5);
+        }
+
+        button.starsn:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        #video-container {
+            display: none;
+            margin-top: 2em;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <h1>Você aceita namorar comigo, minha Gabzinha</h1>
-        <div class="container">            
-            <div class="coluna1">
-                <a href="#" class="sim" id="Sim">Sim</a>
-            </div>
-            <div class="coluna2"> 
-                <a href="./pag2.html" class="nao">Não</a>
-            </div>
+    <div class="container">
+        <h1>Quer ser minha pessoa especial?</h1>
+        <p>quer começar algo especial comigo, onde tenha reciprocidade e seja honesto 😊.</p>
+        <button id="yes-button" class="stars">Sim</button>        
+            <a href="./pag2.html">
+                <button id="no-button" class="starsn" href="./pag2.html">Não</button>
+            </a>
+        <div id="video-container">
+            <p>prometo te proteger das suas inseguranças, transar, beber e crescer juntos, brigar so para transar mais e o mais importante, sempre ouvir luisa sonza contigo.</p>
+            <video width="360" height="215" controls type="video/mp4" src="./img/gatinho beijando a tela do seu celular.mp4"  ></video>
         </div>
-        <div id="meuVideo" style="display: none; margin-top: 5rem;">
-            <h1 style="color: pink;">Te amooo momor!!!</h1>
-            <p style="color: pink; font-size: 1.4rem;">Vamos ser felizes para sempre, prometo</p>
-            <video  width="640" height="360" controls >
-                <source src="./img/videoplayback.mp4" type="video/mp4">
-              
-            </video>
-        </div>
-        
+    </div>
 
-        <script>
-  function exibirVideo() {
-        const video = document.getElementById('meuVideo');
-
-        // Exibe o vídeo alterando o estilo para 'block'
-        video.style.display = 'block';
-
-        // Inicia a reprodução do vídeo
-        video.play();
-
-        // Define o loop para continuar reproduzindo indefinidamente
-        video.addEventListener('ended', function() {
-            video.currentTime = 0; // Reinicia o vídeo para o início
-            video.play(); // Continua reproduzindo em loop
+    <script>
+        document.getElementById('yes-button').addEventListener('click', function() {
+            document.getElementById('video-container').style.display = 'block';
         });
-    }
-
-    // Adiciona um evento de clique ao botão "Ativar Vídeo"
-    const botaoAtivar = document.getElementById('Sim');
-    botaoAtivar.addEventListener('click', exibirVideo);
-
-        </script>
+    </script>
 </body>
 </html>
